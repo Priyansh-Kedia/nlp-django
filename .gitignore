@@ -681,7 +681,8 @@ ENV/
 *.sqlite3
 media/
 *.pyc
-*.db
+*.db 
+
 *.pid
 # django migrations 
 **/migrations/**
