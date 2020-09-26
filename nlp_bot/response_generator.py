@@ -14,7 +14,7 @@ def getMaxSimilarity(question, question_list):
     if question in questions:
         index = question_list.get(question_text=question)
         print(index.answer_text)
-        return question
+        return index
 
     questions.append(question)
     print(questions)
