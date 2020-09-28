@@ -11,7 +11,6 @@ from . import response_generator
 def question_response(request):
     question = request.POST.get('question')
     questions = Question.objects.all()
-    questions_list = [question.question_text for question in questions]
     response = response_generator.getMaxSimilarity(question, questions)
     return Response({'message':response.answer_text})
 

@@ -8,22 +8,16 @@ def tokenize(question):
     return sent_tokenize(question)
 
 def getMaxSimilarity(question, question_list):
-    sentences = ["This is the first document", "This document is the second document","The is the first document"]
-    sentence = "This document is the second document"
     questions = [question.question_text for question in question_list]
     if question in questions:
         index = question_list.get(question_text=question)
-        print(index.answer_text)
         return index
 
     questions.append(question)
-    print(questions)
     vectorizer = TfidfVectorizer(norm=None)
     X = vectorizer.fit_transform(questions)
-    print(cosine_similarity(X[-1],X))
     vals = cosine_similarity(X[-1],X)
     np.delete(vals,-1)
-    print([val for val in vals.flat])
     max_value = 0
     index = None
     for val in vals.flat:
@@ -31,7 +25,6 @@ def getMaxSimilarity(question, question_list):
         if max_value < val and question != questions[i]:
             max_value = val
             index = i
-    print(questions[index])
     return question_list.get(question_text=questions[index])
 
 
