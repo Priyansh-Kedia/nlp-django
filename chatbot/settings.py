@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'nlp_bot.apps.NlpBotConfig',
 
     # others
-    'rest_framework'
+    'rest_framework',
+    'import_export'
 ]
 
 MIDDLEWARE = [
